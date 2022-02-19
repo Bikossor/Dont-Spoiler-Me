@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "Don't Spoiler Me",
+  "version": "1.0",
+  "description": "Disguises specific content from YouTube and Twitch",
+  "browser_action": {
+    "browser_style": true,
+    "default_popup": "ui/index.html",
+    "default_icon": {
+      "16": "icon-16.png",
+      "32": "icon-32.png"
+    }
+  },
+  "icons": {
+    "48": "icon-48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.twitch.tv/*"
+      ],
+      "js": [
+        "dont-spoiler-me.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{42810c62-02a4-4626-bd84-a518ba985dd6}"
+    }
+  }
+}
