@@ -8,10 +8,9 @@ const runExtension = () => {
     ...document.querySelectorAll("[data-test-selector='GameLink']"),
   ];
 
-  console.log(totalGameLinkElements);
-
   const totalThumbnailElements = [
     ...document.querySelectorAll(".tw-hover-accent-effect img"),
+  const shelfCards = [
   ]
 
 
@@ -26,7 +25,6 @@ const runExtension = () => {
 
     const thumbnail = gameCard.querySelectorAll("img")[1];
     thumbnail.style.filter = "blur(0)";
-    console.log(thumbnail);
   });
 
   // Check if GameLink contains a certain text
