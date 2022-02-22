@@ -1,3 +1,7 @@
 .tw-hover-accent-effect img {
   filter: blur(32px);
 }
+
+ytd-thumbnail img#img {
+  filter: blur(32px);
+}
