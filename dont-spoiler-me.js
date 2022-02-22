@@ -30,6 +30,7 @@ const runYouTube = () => {
     }
     else {
       title.innerText = "Don't Spoiler Me";
+      title.title = "Don't Spoiler Me";
     }
 
   });
