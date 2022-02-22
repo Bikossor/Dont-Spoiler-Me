@@ -40,9 +40,6 @@ const runExtension = () => {
 
   const currentUrl = getCurrentUrl()
 
-  console.debug(currentUrl);
-  console.debug()
-
   if (/youtube/i.test(currentUrl.host)) {
     runYouTube();
     return;
