@@ -28,6 +28,9 @@ const runYouTube = () => {
     if (!isMatch) {
       thumbnail.style.filter = "blur(0)";
     }
+    else {
+      title.innerText = "Don't Spoiler Me";
+    }
 
   });
 
