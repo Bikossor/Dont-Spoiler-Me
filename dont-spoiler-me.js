@@ -38,4 +38,4 @@ const runExtension = () => {
 // Run the extension when the website is done loading
 document.addEventListener("DOMContentLoaded", setTimeout(() => {
   runExtension();
-}, 1000));
+}, 500));
