@@ -1,5 +1,57 @@
+//#region Utils
+
+const getCurrentUrl = () => {
+  return new URL(window.location.href);
+};
+
+//#endregion
+
+const runTwitch = () => {
+  console.debug("Mode: twitch");
+};
+
+const runYouTube = () => {
+  console.debug("Mode: youtube");
+
+  const elements = [
+    ...document.querySelectorAll("div#contents.ytd-shelf-renderer")
+  ];
+
+  elements.forEach(element => {
+
+    const title = element.querySelector("a#video-title yt-formatted-string");
+    const thumbnail = element.querySelector("ytd-thumbnail img#img");
+
+
+    const isMatch = /Horizon Forbidden West/i.test(title.innerText);
+
+    if (!isMatch) {
+      thumbnail.style.filter = "blur(0)";
+    }
+
+  });
+
+  // elements.forEach(element => console.debug(element.querySelectorAll("a#video-title")))
+
+};
+
 const runExtension = () => {
   console.log("Don't spoiler me");
+
+  const currentUrl = getCurrentUrl()
+
+  console.debug(currentUrl);
+  console.debug()
+
+  if (/youtube/i.test(currentUrl.host)) {
+    runYouTube();
+    return;
+  }
+
+  if (/twitch/i.test(currentUrl.host)) {
+    runTwitch();
+    return;
+  }
 
   const hideThis = ["Horizon Forbidden West"];
 
@@ -8,11 +60,11 @@ const runExtension = () => {
     ...document.querySelectorAll("[data-test-selector='GameLink']"),
   ];
 
-  const totalThumbnailElements = [
-    ...document.querySelectorAll(".tw-hover-accent-effect img"),
   const shelfCards = [
+    ...document.querySelectorAll("div.tw-tower article.Layout-sc-nxg1ff-0"),
   ]
 
+  shelfCards.forEach(shelfCard => console.log(shelfCard.querySelectorAll("[data-test-selector='GameLink']")))
 
   totalGameLinkElements.forEach((gameLinkElement) => {
     if (hideThis.includes(gameLinkElement.innerText)) {
